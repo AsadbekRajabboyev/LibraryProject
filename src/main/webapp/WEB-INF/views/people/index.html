@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Odamlar</title>
+</head>
+<body>
+<div th:each="person:${people}">
+    <a th:href="@{/people/{id}(id =${person.getId()})}" th:text="${person.getName()}">User</a>
+</div>
+<hr>
+<p style="color:red;">Menyu</p>
+<a th:href="@{/people/new}">Yangi odam qoshish</a>
+<br>
+<a th:href="@{/book/}">Kitoblar</a>
+<hr>
+</body>
+</html>

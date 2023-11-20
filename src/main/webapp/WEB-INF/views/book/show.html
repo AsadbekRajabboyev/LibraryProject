@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Show All books</title>
+</head>
+<body>
+<p th:text="${kitob.getBookId()}"></p>
+<p th:text="${kitob.getBookName()}"></p>
+<p th:text="${kitob.getBookAuthor()}"></p>
+<p th:text="${kitob.getDate()}"></p>
+
+
+<div th:if="${owner}">
+    <span>Kitob xozirda:</span> <span th:text="${owner.getName()}">Person name</span>
+    <form th:method="Patch" th:action="@{/book/{id}/setNull(id = ${kitob.getBookId()})}">
+        <input type="submit" value="Kitobni olish">
+    </form>
+</div>
+
+
+
+
+<div th:if="${people}">
+    <form th:method="PATCH" th:action="@{/book/{id}/giveBook(id=${kitob.getBookId()})}">
+        <label for="person">Kitobni kimga belgilaysiz</label>
+        <select th:object="${person}" th:field="*{id}" id="person">
+            <option th:each="person:${people}" th:value="${person.getId()}" th:text="${person.getName()}">
+
+            </option>
+        </select>
+        <input type="submit" value="Belgilash"/>
+    </form>
+</div>
+
+
+
+<a th:href="@{/book/{id}/edit(id =${kitob.getBookId()})}">EDIT</a>
+<form th:method="delete" th:action="@{/book/{id}/delete(id =${kitob.getBookId()})}">
+    <input type="submit" value="Delete">
+</form>
+</body>
+</html>

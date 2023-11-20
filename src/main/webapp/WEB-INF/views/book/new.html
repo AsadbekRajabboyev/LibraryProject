@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>New Book add</title>
+</head>
+<body>
+<form th:method="post" th:action="@{/book}" th:object="${kitob}">
+    <label for="bookName">Book name</label>
+    <input name="bookName" type="text" th:field="*{bookName}" id="bookName">
+    <br>
+    <label for="bookAuthor">Author</label>
+    <input name="bookAutor" type="text" th:field="*{bookAuthor}" id="bookAuthor">
+    <br>
+    <label for="date">Date</label>
+    <input name="date" type="text" th:field="*{date}" id="date">
+
+    <input type="submit" value="Add book"></form>
+</body>
+</html>

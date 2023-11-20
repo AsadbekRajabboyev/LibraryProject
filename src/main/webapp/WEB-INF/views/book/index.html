@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All books</title>
+</head>
+<body>
+<div th:each="book:${kitob}">
+    <a th:href="@{/book/{id}(id =${book.getBookId()})}" th:text="${book.getBookName()}">book</a>
+</div>
+<hr>
+<hr>
+<p style="color:red;">Menyu</p>
+
+<a th:href="@{/book/new}">Yangi kitob qoshish</a>
+<br>
+<a th:href="@{/people}">Userlar</a>
+<hr>
+</body>
+</html>
